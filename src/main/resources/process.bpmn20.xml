@@ -1,42 +1,38 @@
 <definitions id="definitions" targetNamespace="http://activiti.org/bpmn20"
 	xmlns:activiti="http://activiti.org/bpmn" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
-	<process id="financialReport" name="Monthly financial report reminder process">
-		
-		<startEvent id="theStart" />
-		
-		<sequenceFlow id='flow1' sourceRef='theStart' targetRef='writeReportTask' />
+	<process id="autorizarHoraExtra" name="Processo de autorização de hora extra">
 
-		<userTask id="writeReportTask" name="Write monthly financial report">
+		<startEvent id="start" />
+
+		<sequenceFlow id='flow1' sourceRef='start' targetRef='solicitarADirecao' />
+
+		<userTask id="solicitarADirecao" name="Solicitar as horas extras à direção">
 			<documentation>
-				Write monthly financial report for publication to shareholders.
+				Explique a necessidade de realizar horas extras e especifique os dias e quantidade de horas.
 			</documentation>
 			<potentialOwner>
 				<resourceAssignmentExpression>
-					<formalExpression>accountancy</formalExpression>
+					<formalExpression>servidor</formalExpression>
 				</resourceAssignmentExpression>
 			</potentialOwner>
 		</userTask>
 
-		<sequenceFlow id='flow2' sourceRef='writeReportTask'
-			targetRef='verifyReportTask' />
+		<sequenceFlow id='flow2' sourceRef='solicitarADirecao' targetRef='analisarSolicitacao' />
 
-		<userTask id="verifyReportTask" name="Verify monthly financial report">
+		<userTask id="analisarSolicitacao" name="Analisar solicitação de horas extras">
 			<documentation>
-				Verify monthly financial report composed by the accountancy department.
-				This financial report is going to be sent to all the company
-				shareholders.
+				Analise a solicitação de horas extras, de acordo com os critérios em XXXX, e registra a decisão quanto a autorização ou não.
 			</documentation>
 			<potentialOwner>
 				<resourceAssignmentExpression>
-					<formalExpression>management</formalExpression>
+					<formalExpression>direção</formalExpression>
 				</resourceAssignmentExpression>
 			</potentialOwner>
 		</userTask>
 
-		<sequenceFlow id='flow3' sourceRef='verifyReportTask'
-			targetRef='theEnd' />
+		<sequenceFlow id='flow3' sourceRef='analisarSolicitacao' targetRef='end' />
 
-		<endEvent id="theEnd" />
+		<endEvent id="end" />
 
 	</process>
 </definitions>
