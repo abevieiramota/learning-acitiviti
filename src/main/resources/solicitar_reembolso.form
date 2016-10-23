@@ -1,0 +1,31 @@
+<h1>Solicitação de reembolso</h1>
+<table>
+	<tr>
+		<td>
+			<label>
+				Nome:
+				<input type="text" name="empregado" value="" />
+				<input type="hidden" name="empregado_required" value="true" />
+			</label>
+			<br />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label>
+				Quantidade:
+				<input type="text" name="quantidade" value="" />
+				<input type="hidden" name="quantidade_required" value="true" />
+				<input type="hidden" name="quantidade_type" value="integer" />
+			</label>
+			<br />
+	</tr>
+	<tr>
+		<td>
+			<label>
+				Motivo:<br />
+				<textarea name="motivo"></textarea>
+			</label>
+		</td>
+	</tr>
+</table>

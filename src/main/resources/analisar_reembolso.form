@@ -1,0 +1,10 @@
+<h1>Analisar solicitação de reembolso</h1>
+<p>${empregado} solicitou reembolso de ${quantidade} reais.</p>
+<br />
+<br />
+Você aprova?
+<select name="aprovado">
+	<option value="true">Sim</option>
+	<option value="false">Não</option>
+</select>
+<input type="hidden" name="aprovado" value="boolean" />
