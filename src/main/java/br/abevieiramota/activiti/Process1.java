@@ -12,13 +12,13 @@ import org.activiti.engine.identity.User;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 
-public class Main {
+public class Process1 {
 	public static void main(String[] args) {
 		// get engine
 		ProcessEngine engine = ProcessEngines.getDefaultProcessEngine();
 
 		// deploy process
-		engine.getRepositoryService().createDeployment().addClasspathResource("process.bpmn20.xml").deploy();
+		engine.getRepositoryService().createDeployment().addClasspathResource("process1.bpmn20.xml").deploy();
 
 		// start instance
 		ProcessInstance pi = engine.getRuntimeService().startProcessInstanceByKey("autorizarHoraExtra");

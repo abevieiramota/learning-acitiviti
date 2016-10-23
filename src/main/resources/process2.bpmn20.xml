@@ -1,0 +1,31 @@
+<definitions id="definitions" targetNamespace="http://activiti.org/bpmn20"
+	xmlns:activiti="http://activiti.org/bpmn" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
+	<process id="papocaTimer" name="Processo de autorização de hora extra">
+	
+		<startEvent id="start" />
+		
+		<sequenceFlow id="flow0" sourceRef="start" targetRef="paraAgora" />
+
+		<intermediateCatchEvent id="paraAgora" name="para">
+			<timerEventDefinition>
+				<timeDuration>PT2S</timeDuration>
+			</timerEventDefinition>
+		</intermediateCatchEvent>
+
+		<sequenceFlow id='flow1' sourceRef='paraAgora' targetRef='papoca' />
+
+		<userTask id="papoca" name="Pow!">
+			<documentation>
+				Papoca!
+			</documentation>
+			<potentialOwner>
+				<resourceAssignmentExpression>
+					<formalExpression>pessoa</formalExpression>
+				</resourceAssignmentExpression>
+			</potentialOwner>
+		</userTask>
+
+		<endEvent id="end" />
+
+	</process>
+</definitions>
